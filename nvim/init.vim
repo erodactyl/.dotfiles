@@ -9,7 +9,7 @@ set noerrorbells
 set incsearch
 set nohlsearch
 set scrolloff=8
-let mapleader = " "
+set signcolumn=yes
 
 call plug#begin()
 
@@ -39,6 +39,9 @@ highlight Normal guibg=none
 
 " Nvim Tree
 set splitright
+
+let mapleader = " "
+
 nnoremap <leader>p :NvimTreeFocus<cr>
 
 " let g:prettier#quickfix_enabled = 0
