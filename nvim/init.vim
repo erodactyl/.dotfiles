@@ -8,8 +8,10 @@ set hidden
 set noerrorbells
 set incsearch
 set nohlsearch
-set scrolloff=8
+set scrolloff=12
 set signcolumn=yes
+set autoindent
+set noswapfile
 
 call plug#begin()
 
@@ -42,7 +44,7 @@ set splitright
 
 let mapleader = " "
 
-nnoremap <leader>p :NvimTreeFocus<cr>
+nnoremap <leader>b :NvimTreeFocus<cr>
 
 " let g:prettier#quickfix_enabled = 0
 " autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
