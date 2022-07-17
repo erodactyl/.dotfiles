@@ -67,6 +67,11 @@ let mapleader = " "
 
 nnoremap <leader>b :NvimTreeFocus<cr>
 
+" Save
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
 let g:airline_theme='codedark'
 
 " let g:prettier#quickfix_enabled = 0
