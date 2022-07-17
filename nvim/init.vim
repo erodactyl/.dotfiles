@@ -55,7 +55,9 @@ set termguicolors
 set background=dark
 let g:codedark_italics = 1
 colorscheme codedark
-highlight Normal guibg=none
+highlight Normal guibg=NONE ctermbg=NONE
+highlight nonText guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
 " End theming
 
 " Nvim Tree
