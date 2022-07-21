@@ -25,6 +25,8 @@ Plug 'tomasiser/vim-code-dark'
 "  \ 'do': 'yarn install --frozen-lockfile --production',
 "  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
 Plug 'neovim/nvim-lspconfig' " Config for language servers
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -72,6 +74,11 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+nnoremap <leader>p <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 let g:airline_theme='codedark'
 
 " let g:prettier#quickfix_enabled = 0
@@ -83,7 +90,24 @@ lua << EOF
 	    enable = true,
 	  },
 	}
-  require'nvim-tree'.setup{ view = { side = 'left' } }
+  require'nvim-tree'.setup{ 
+    view = {
+      side = 'left'
+    },
+    filters = {
+      dotfiles = true,
+    },
+  }
+  require'telescope'.setup{
+    pickers = {
+        find_files = {
+          theme = "dropdown",
+        },
+        live_grep = {
+          theme = "dropdown",
+        }
+    }
+  }
 
   local cmp = require'cmp'
   
